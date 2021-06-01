@@ -17,7 +17,7 @@ class Game(models.Model):
     """Model representing a game."""
     name = models.CharField(max_length=200)
     description = models.TextField(max_length=1000, help_text='Enter a brief description of the game')
-    price = models.TextField(max_length=5)
+    price = models.DecimalField(max_digits=5, decimal_places=2)
 
     genre = models.ManyToManyField(Genre, help_text='Select a genre for this book')
 
