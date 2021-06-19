@@ -21,3 +21,14 @@ class Game(models.Model):
     def __str__(self):
         """String for representing the Model object."""
         return self.title
+
+class User(models.Model):
+    """Model representing a user."""
+    given_name = models.CharField(max_length=20)
+    surname = models.CharField(max_length=20)
+    email = models.CharField(max_length=50)
+    address = models.CharField(max_length=75)
+
+    def __str__(self):
+        """String for representing the Model object"""
+        return self.surname + ", " + self.given_name

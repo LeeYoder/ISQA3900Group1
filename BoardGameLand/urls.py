@@ -1,7 +1,8 @@
 from . import views
-from django.urls import path, re_path
+from django.urls import path
 
-app_name = 'BoardGameLand'
 urlpatterns = [
     path('', views.home, name='home'),
+    path('games/', views.GameList.as_view(), name='games'),
+    path('game/<int:pk>', views.Game.as_view(), name='game')
 ]
