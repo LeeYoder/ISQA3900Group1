@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+from django.urls import reverse
 
 class Genre(models.Model):
     """Model representing a game genre."""
@@ -12,11 +12,15 @@ class Genre(models.Model):
 
 class Game(models.Model):
     """Model representing a game."""
-    name = models.CharField(max_length=200)
+    title = models.CharField(max_length=200)
     description = models.TextField(max_length=1000, help_text='Enter a brief description of the game')
     price = models.DecimalField(max_digits=5, decimal_places=2)
 
     genre = models.ManyToManyField(Genre, help_text='Select a genre for this book')
+
+    def get_absolute_url(self):
+        """Returns the url to access a detail record for this game."""
+        return reverse('game', args=[str(self.id)])
 
     def __str__(self):
         """String for representing the Model object."""
