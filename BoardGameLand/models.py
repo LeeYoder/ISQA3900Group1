@@ -36,3 +36,12 @@ class User(models.Model):
     def __str__(self):
         """String for representing the Model object"""
         return self.surname + ", " + self.given_name
+
+class Cart(models.Model):
+    """Model representing a cart."""
+    user_id = models.ForeignKey('User', on_delete=models.CASCADE)
+    items = models.ManyToManyField(Game, help_text="list of items in user's shopping cart.")
+
+    def __str__(self):
+        """String for representing the Model object"""
+        return self.items

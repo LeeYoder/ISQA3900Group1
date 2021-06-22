@@ -1,5 +1,7 @@
-from django.shortcuts import render
-from BoardGameLand.models import Game, Genre
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, get_object_or_404
+from BoardGameLand.models import *
+from django.db.models import Sum
 from django.views import generic
 
 # Create your views here.
@@ -13,3 +15,12 @@ class GameList(generic.ListView):
 
 class Game(generic.DetailView):
     model = Game
+
+@login_required
+def cart(request, pk):
+    user = get_object_or_404(User, pk=pk)
+    items = Cart.objects.filter(user_id=pk)
+    total_price = items.aggregate(Sum('price'))
+    return render(request, 'BoardGameLand/cart.html', {'user': user,
+                                                       'items': items,
+                                                       'total_price': total_price})

@@ -14,9 +14,13 @@
     <ul class="nav-area">
         <li><a href="">home</a></li>
         <li><a href="{% url 'games' %}">Games</a></li>
-        <li><a href="">cart</a></li>
-        <li><a href="">Signup</a></li>
-        <li><a href="{% url 'login'%}">login</a></li>
+        {% if user.is_authenticated %}
+            <li><a href="{% url 'cart' pk=user.pk %}">cart</a></li>
+            <li><a href="{% url 'logout' %}">logout</a></li>
+        {% else %}
+            <li><a href="">Signup</a></li>
+            <li><a href="{% url 'login'%}">login</a></li>
+        {% endif %}
 
     </ul>
 
