@@ -1,9 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Title: {{ game.title }}</h1>
+    <h1>Title: {{ game.title }}</h1>
 
-  <p><strong>Description:</strong> {{ game.description }}</p>
-  <p><strong>Genre:</strong> {{ game.genre.all|join:", " }}</p>
-  <p><strong>Price:</strong> ${{ game.price }}</p>
+    <p><strong>Description:</strong> {{ game.description }}</p>
+    <p><strong>Genre:</strong> {{ game.genre.all|join:", " }}</p>
+    <p><strong>Price:</strong> ${{ game.price }}</p>
+    <a href="">add to cart</a>
 {% endblock %}
