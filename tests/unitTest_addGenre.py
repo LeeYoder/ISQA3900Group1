@@ -35,7 +35,7 @@ class ll_ATS(unittest.TestCase):
         time.sleep(3)
         try:
             # attempt to find the 'Logout' button - if found, logged in
-           elem = driver.find_element_by_xpath("/html/body/")
+           elem = driver.find_element_by_xpath("/html/body/div/div[3]/div/div/h1")
 
            assert True
 

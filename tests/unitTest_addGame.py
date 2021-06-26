@@ -21,14 +21,14 @@ class ll_ATS(unittest.TestCase):
 
         driver = self.driver
         driver.maximize_window()
-        driver.get("http://127.0.0.1:8000/admin")
+        driver.get("http://isqagroup1.pythonanywhere.com/admin")
         elem = driver.find_element_by_id("id_username")
         elem.send_keys(user)
         elem = driver.find_element_by_id("id_password")
         elem.send_keys(pwd)
         time.sleep(3)
         elem.send_keys(Keys.RETURN)
-        driver.get("http://127.0.0.1:8000/admin/BoardGameLand/game/add/")
+        driver.get("http://isqagroup1.pythonanywhere.com/admin/BoardGameLand/game/add/")
         time.sleep(3)
         elem = driver.find_element_by_id("id_title")
         elem.send_keys(title)
@@ -44,7 +44,7 @@ class ll_ATS(unittest.TestCase):
         time.sleep(3)
         try:
             # attempt to find the 'Logout' button - if found, logged in
-           elem = driver.find_element_by_xpath("/html/body/")
+           elem = driver.find_element_by_xpath("/html/body/div/div[3]/div/div/h1")
 
            assert True
 

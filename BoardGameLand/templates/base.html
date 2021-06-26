@@ -10,7 +10,7 @@
         <img src="../static/images/BoardGameLandLogo.PNG" alt="logo" width="100" height="100">
     </div>
     <ul class="nav-area">
-        <li><a href="">home</a></li>
+        <li><a href="{% url 'home' %}">home</a></li>
         <li><a href="{% url 'games' %}">Games</a></li>
         {% if user.is_authenticated %}
             <li><a href="{% url 'cart' pk=user.pk %}">cart</a></li>

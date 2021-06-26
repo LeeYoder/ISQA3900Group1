@@ -18,7 +18,7 @@ class ll_ATS(unittest.TestCase):
         time.sleep(3)
         # assert "Logged in"
         elem = driver.find_element_by_xpath("/html/body/header/div/ul/li[2]/a").click()
-        ele = driver.find_element_by_xpath("/html/body/ul[2]/li[1]/a").click()
+        elem = driver.find_element_by_xpath("/html/body/ul[2]/li[1]/a").click()
 
         time.sleep(5)
         try:
