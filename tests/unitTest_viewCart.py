@@ -1,6 +1,7 @@
 import unittest
 import time
 from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import NoSuchElementException
 
 
@@ -10,9 +11,19 @@ class ll_ATS(unittest.TestCase):
         self.driver = webdriver.Chrome()
 
     def test_ll(self):
+        user = "lwyoder"
+        pwd = "1Usr5oth"
 
         driver = self.driver
         driver.maximize_window()
+        driver.get("http://isqagroup1.pythonanywhere.com/admin")
+        elem = driver.find_element_by_id("id_username")
+        elem.send_keys(user)
+        elem = driver.find_element_by_id("id_password")
+        elem.send_keys(pwd)
+        time.sleep(3)
+        elem.send_keys(Keys.RETURN)
+        time.sleep(3)
 
         driver.get("http://isqagroup1.pythonanywhere.com")
         time.sleep(3)
@@ -22,7 +33,7 @@ class ll_ATS(unittest.TestCase):
         time.sleep(5)
         try:
             # attempt to find the 'Logout' button - if found, logged in
-            elem = driver.find_element_by_xpath("/html/body/ul/li/a")
+            elem = driver.find_element_by_xpath("/html/body/div[1]/ul/li[1]/a")
 
             assert True
 
