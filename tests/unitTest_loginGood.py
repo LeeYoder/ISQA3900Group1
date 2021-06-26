@@ -28,7 +28,7 @@ class ll_ATS(unittest.TestCase):
         #assert "Logged in"
         try:
             # attempt to find the 'Logout' button - if found, logged in
-           elem = driver.find_element_by_xpath("/html/body//html/body/header/div/ul/li[4]/a")
+           elem = driver.find_element_by_xpath("/html/body/header/div/ul/li[4]/a")
 
            assert True
 
